@@ -6,8 +6,8 @@ function App() {
     <div id="App">
 
       <Perfil />
-      <div className="perfil">
-        <img src="https://placehold.co/200x20"  alt="" />
+      <div className='perfil'>
+        <img src="https://placehold.co/200x200"  alt="" />
         <p>@Ana Clara</p>
       </div>
       <div className="switch">
