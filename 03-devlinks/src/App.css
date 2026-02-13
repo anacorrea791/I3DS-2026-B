@@ -18,7 +18,7 @@
     color: var(--text-color);
 }
 
- ul {
+#Link ul {
     list-style: none;
     display: flex;
     flex-direction: column;
