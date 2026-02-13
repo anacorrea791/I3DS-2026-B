@@ -11,7 +11,7 @@
 
 #App {
     height: 100vh;
-
+   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,12 +26,20 @@
     color: var(--text-color);
 }
 
-#Link ul {
+#Link {
+    display: flex;
+    justify-content: center;
+
+ul {
+    width: 100%;
+
+    max-width: 588px;
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 24px;
+}
 }
 
 #SocialLinks {
