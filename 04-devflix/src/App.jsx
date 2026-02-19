@@ -1,11 +1,26 @@
 import "./App.css";
 
+import logo from "./assets/devflix.png";
+import lupa from "./assets/search.svg";
+
 const App = () => {
   return (
-    <div>
-      
+    <div id="App">
+      <img
+        id="logo"
+        src={logo}
+        alt="Imagem do logo da plataforma de streaming Devflix, com fundo preto e letras vermelhas destacando o nome. Ideal para promover o serviço de streaming de filmes e séries, com destaque para conteúdo de alta qualidade."
+      />
+
+      <div className="search">
+        <input type="text" placeholder="Pesquise por filmes e séries..." />
+        <img src={lupa} alt="Botão de ação para pesquisa!" />
+      </div>
+
+      <Rodape>Ana Clara</Rodape>
+
     </div>
   )
 }
 
-export default App
+export default App;
