@@ -1,10 +1,11 @@
-import { useState } from 'react'
-import './App.css'
-import Link from './components/Link/Link'
-import Perfil from './components/Perfil/Perfil'
-import Rodape from './components/Rodape/Rodape'
-import SocialLink from './components/SocialLink/SocialLink'
-import Switch from './components/Switch/Switch'
+import { useState } from 'react';
+import './App.css';
+import Link from './components/Link/Link';
+import Perfil from './components/Perfil/Perfil';
+import Rodape from './components/Rodape/Rodape';
+import SocialLink from './components/SocialLink/SocialLink';
+import Switch from './components/Switch/Switch';
+import foto from './assets/fotoperfil.png';
 
 function App() {
   const [isLight,setIsLight] = useState(true);
@@ -13,7 +14,7 @@ function App() {
 
   return (
    <div id="App" className={isLight ? "light" : ""}>
-      <Perfil fotoPerfil={"https://placehold.co/100"}> Ana Clara</Perfil>
+      <Perfil fotoPerfil={foto}> Ana Clara</Perfil>
 
       <Switch troca={troca} isLight={isLight} />
 
