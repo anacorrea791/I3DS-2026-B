@@ -2,6 +2,7 @@ import "./App.css";
 
 import logo from "./assets/devflix.png";
 import lupa from "./assets/search.svg";
+import Rodape from "./components/Rodape/Rodape";
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
         <img src={lupa} alt="Botão de ação para pesquisa!" />
       </div>
 
-      <Rodape>Ana Clara</Rodape>
+      <Rodape>Ana clara</Rodape>
 
     </div>
   )
