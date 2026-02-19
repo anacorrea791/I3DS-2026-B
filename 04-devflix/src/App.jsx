@@ -18,7 +18,7 @@ const App = () => {
         <img src={lupa} alt="Botão de ação para pesquisa!" />
       </div>
 
-      <Rodape>Ana clara</Rodape>
+      <Rodape link={"https://github.com/anacorrea791"}>Ana clara</Rodape>
 
     </div>
   )
