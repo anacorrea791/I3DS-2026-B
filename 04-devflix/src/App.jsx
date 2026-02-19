@@ -41,7 +41,7 @@ const App = () => {
 
       <div className="container">
         {movies.map((movie, index) => (
-          <movie
+          <movie></movie>
         ))}
       </div>
 
