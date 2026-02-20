@@ -97,6 +97,15 @@ body {
   }
 }
 
+.container {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+}
+
 @media screen and (max-width:600px) {
   #App {
     padding: 4rem 2rem;
