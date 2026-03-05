@@ -24,7 +24,10 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchMovies("tinker bell");
+   ( async () => {
+      await searchMovies("tinker bell");
+    }) ();
+  
   }, []);
 
   return (
