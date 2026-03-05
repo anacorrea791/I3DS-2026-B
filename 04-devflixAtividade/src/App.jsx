@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-import logo from "./assets/devflix.png";
+import logo from "./assets/logo.png";
 import lupa from "./assets/search.svg";
 import Rodape from "./components/Rodape/Rodape";
 import MovieCard from "./components/MovieCard/MovieCard";
@@ -24,10 +24,9 @@ const App = () => {
   };
 
   useEffect(() => {
-   ( async () => {
+    (async () => {
       await searchMovies("tinker bell");
-    }) ();
-  
+    })();
   }, []);
 
   return (
@@ -39,25 +38,32 @@ const App = () => {
       />
 
       <div className="search">
-        <input onKeyDown={(e) => e.key === "Enter" && searchMovies(search)} onChange={(e) => setSearch(e.target.value)}  type="text" placeholder="Pesquise por filmes e séries..." />
-        <img  onClick={() => searchMovies(search)} src={lupa} alt="Botão de ação para pesquisa!" />
+        <input
+          onKeyDown={(e) => e.key === "Enter" && searchMovies(search)}
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Pesquise por filmes e séries..."
+        />
+        <img
+          onClick={() => searchMovies(search)}
+          src={lupa}
+          alt="Botão de ação para pesquisa!"
+        />
       </div>
 
       {movies?.length > 0 ? (
-      <div className="container">
-        {movies.map((movie, index) => (
-          <MovieCard key={index} {...movie} apiUrl={apiUrl} />
-        ))}
-      </div>
-    )
-    :
-    (
-      <h2 className="empty">😔 filme não encontrado</h2>
-    )}
+        <div className="container">
+          {movies.map((movie, index) => (
+            <MovieCard key={index} {...movie} apiUrl={apiUrl} />
+          ))}
+        </div>
+      ) : (
+        <h2 className="empty">😔 filme não encontrado</h2>
+      )}
 
       <Rodape link={"https://github.com/anacorrea791"}>Ana clara</Rodape>
     </div>
-  )
-}
+  );
+};
 
 export default App;
