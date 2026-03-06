@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./MovieDescription.module.css";
 
 const MovieDescription = (props) => {
   const [movieDesc, setMovieDesc] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(`${props.apiUrl}&i=${props.movieID}`)
@@ -14,7 +16,6 @@ const MovieDescription = (props) => {
   return (
     <div className={styles.modalBackdrop} onClick={props.click}>
       <div className={styles.movieModal} onClick={(e) => e.stopPropagation()}>
-        
         <div className={styles.movieInfo}>
           <img src={movieDesc.Poster} alt={movieDesc.Title} />
 
@@ -34,7 +35,7 @@ const MovieDescription = (props) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                ▶️ Assistir
+                ▶️ {t("watch")}
               </a>
             </div>
           </div>
@@ -42,19 +43,25 @@ const MovieDescription = (props) => {
 
         <div className={styles.containerMisc}>
           <div className={styles.containerFlex}>
-            Avaliação: {movieDesc.imdbRating} | Duração: {movieDesc.Runtime} | Lançamento: {movieDesc.Released}
+            {t("rating")}: {movieDesc.imdbRating} | {t("duration")}:{" "}
+            {movieDesc.Runtime} | {t("release")}: {movieDesc.Released}
           </div>
 
           <div className={styles.containerFlex}>
-            <p>Elenco: {movieDesc.Actors}</p>
-            <p>Gênero: {movieDesc.Genre}</p>
+            <p>
+              {t("actors")}: {movieDesc.Actors}
+            </p>
+            <p>
+              {t("genre")}: {movieDesc.Genre}
+            </p>
           </div>
         </div>
 
         <div className={styles.desc}>
-          <p>Sinopse: {movieDesc.Plot}</p>
+          <p>
+            {t("plot")}: {movieDesc.Plot}
+          </p>
         </div>
-
       </div>
     </div>
   );
