@@ -1,0 +1,12 @@
+{
+  "searchPlaceholder": "Pesquise por filmes e séries...",
+  "searchButton": "Botão de pesquisa",
+  "movieNotFound": "Filme não encontrado",
+
+  "watch": "Assistir",
+  "rating": "Avaliação",
+  "duration": "Duração",
+  "actors": "Elenco",
+  "genre": "Gênero",
+  "plot": "Sinopse"
+}

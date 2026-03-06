@@ -1,0 +1,12 @@
+{
+  "searchPlaceholder": "Search for movies and series...",
+  "searchButton": "Search button",
+  "movieNotFound": "Movie not found",
+
+  "watch": "Watch",
+  "rating": "Rating",
+  "duration": "Duration",
+  "actors": "Actors",
+  "genre": "Genre",
+  "plot": "Plot"
+}
