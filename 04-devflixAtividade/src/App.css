@@ -13,38 +13,29 @@
   --shadow: 0px 2px 8px var(--shadow-color);
 }
 
+/* FUNDO DO TEMA LIGHT */
 body[data-theme="light"]{
-  background:#FFFBF1;
-
   background-image:
-  linear-gradient(
-    to bottom,
-    rgba(255,251,241,0.9),
-    rgba(255,251,241,1)
-  );
-
-  color:#111;
+    linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+    url("./assets/cinema04.png");
 }
 
-
-
+/* DARK MODE CONTROLADO PELO BOTÃO */
 body[data-theme="dark"]{
+  --bg-primary: #212426;
+  --bg-secondary: #343739;
+  --text-primary: #f5f5f5;
+  --text-secondary:#f0f0f0;
+  --text-placeholder: #a1a1a1;
+  --accent-color:#ffa500;
+  --shadow-color:rgba(0, 0, 0, 0.4);
+  --shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
 
+  /* FUNDO DARK */
   background-image:
-  linear-gradient(
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.9)
-  ),
-  url("./assets/cinema04.png");
-
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  background-attachment:fixed;
-
-  color:rgb(0, 0, 0);
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("./assets/cinema04.png");
 }
-
 
 /* ADICIONADO: transição global suave entre temas */
 *{
