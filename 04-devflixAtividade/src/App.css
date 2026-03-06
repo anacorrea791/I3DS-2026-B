@@ -27,9 +27,24 @@
   }
 }
 
+/* ADICIONADO: transição global suave entre temas */
+*{
+  transition: 
+  background-color 0.3s ease,
+  color 0.3s ease,
+  box-shadow 0.3s ease;
+}
+
 body {
   font-family: var(--font-relaway);
-  background: var(--bg-primary);
+
+  background-image:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("./assets/cinema04.png"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   color: var(--text-primary);
 
@@ -48,15 +63,15 @@ body {
 }
 
 #Logo{
-     max-width: 100%;
-     overflow: hidden;
+  max-width: 100%;
+  overflow: hidden;
+}
 
-  &img{
-     width: 70%;
-     height: auto;
-     display: block;
-     margin: auto;
-  }
+#Logo img{
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: auto;
 }
 
 .search{
@@ -73,35 +88,34 @@ body {
   -webkit-box-shadow: var(--shadow);
 
   transition: all 0.3s ease;
+}
 
-  & input{
-    flex: 1;
-    border: none;
-    outline: none;
-    padding-right: 1rem;
-    color: var(--bg-primary);
-    background: var(--bg-secondary);
-    font-size: 1.5rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
+.search input{
+  flex: 1;
+  border: none;
+  outline: none;
+  padding-right: 1rem;
+  color: var(--bg-primary);
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
 
-  & input::placeholder{
-     color: var(--text-placeholder);
-  }
+.search input::placeholder{
+  color: var(--text-placeholder);
+}
 
-  & img {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-  }
+.search img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
 }
 
 .empty {
   width: 100%;
   margin-top: 2rem;
   text-align: center;
-
   color: var(--accent-color);
 }
 
@@ -122,15 +136,15 @@ body {
   .search {
     padding: 1rem 1.75rem;
     width: 100%;
+  }
 
-    & input {
-     font-size: 1.1rem;
-    }
+  .search input {
+    font-size: 1.1rem;
+  }
 
-    & img {
-      width: 20px;
-      height: 20px;
-    }
+  .search img {
+    width: 20px;
+    height: 20px;
   }
 }
 

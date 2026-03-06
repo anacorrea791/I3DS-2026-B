@@ -35,6 +35,7 @@ const App = () => {
         id="Logo"
         src={logo}
         alt="Imagem do logo da plataforma de streaming Devflix, com fundo preto e letras vermelhas destacando o nome. Ideal para promover o serviço de streaming de filmes e séries, com destaque para conteúdo de alta qualidade."
+        style={{ width: "480px", height: "auto" }}
       />
 
       <div className="search">
