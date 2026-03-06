@@ -15,6 +15,12 @@ const App = () => {
   // TRADUÇÃO
   const { t, i18n } = useTranslation();
 
+  // Garantir que sempre inicie em pt-BR se não houver preferência salva
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "pt";
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
+
   // TEMA (salvo no navegador)
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
@@ -36,10 +42,11 @@ const App = () => {
 
   // BUSCA INICIAL
   useEffect(() => {
-    (async () => {
+    const loadInitialMovies = async () => {
       await searchMovies("tinker bell");
-    })();
-  }, []);
+    };
+    loadInitialMovies();
+  }, [apiUrl]);
 
   // APLICAR TEMA NO BODY
   useEffect(() => {
@@ -61,6 +68,7 @@ const App = () => {
   // TROCAR IDIOMA
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
+    localStorage.setItem("language", lang); // Salva a preferência do usuário
   };
 
   // TROCAR TEMA
@@ -68,33 +76,25 @@ const App = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };
-  
 
   return (
     <div id="App">
-
       <img
         id="Logo"
         src={logo}
-        alt="Imagem do logo da plataforma de streaming Devflix, com fundo preto e letras vermelhas destacando o nome."
+        alt={t("logoAlt")}
         style={{ width: "480px", height: "auto" }}
       />
 
       {/* BOTÕES DE CONTROLE */}
       <div className="controls">
-
         <button onClick={toggleTheme}>
-          {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+          {theme === "light" ? `🌙 ${t("darkMode")}` : `☀️ ${t("lightMode")}`}
         </button>
 
-        <button onClick={() => changeLanguage("pt")}>
-          🇧🇷 PT
-        </button>
+        <button onClick={() => changeLanguage("pt")}>🇧🇷 PT</button>
 
-        <button onClick={() => changeLanguage("en")}>
-          🇺🇸 EN
-        </button>
-
+        <button onClick={() => changeLanguage("en")}>🇺🇸 EN</button>
       </div>
 
       {/* BUSCA */}
@@ -126,9 +126,7 @@ const App = () => {
           ))}
         </div>
       ) : (
-        <h2 className="empty">
-          😔 {t("movieNotFound")}
-        </h2>
+        <h2 className="empty">😔 {t("movieNotFound")}</h2>
       )}
 
       {/* MODAL DE DESCRIÇÃO */}
@@ -141,10 +139,7 @@ const App = () => {
       )}
 
       {/* RODAPÉ */}
-      <Rodape link={"https://github.com/anacorrea791"}>
-        Ana clara
-      </Rodape>
-
+      <Rodape link={"https://github.com/anacorrea791"}>Ana clara</Rodape>
     </div>
   );
 };
