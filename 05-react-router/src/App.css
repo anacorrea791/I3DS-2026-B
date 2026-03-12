@@ -1,0 +1,30 @@
+.navbar {
+  background-color: rgb(42, 144, 151);
+
+  & .container {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+
+    & a {
+      padding: 20px;
+      text-decoration: none;
+      color: black;
+    }
+
+    & a:hover {
+      color: rgb(117, 203, 207);
+      background-color: rgb(11, 144, 161);
+    }
+  }
+}
+
+.containerApp {
+  min-height: 85vh;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
