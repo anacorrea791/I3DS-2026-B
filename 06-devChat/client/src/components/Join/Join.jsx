@@ -13,7 +13,7 @@ const Join = (props) => {
     const username = usernameRef.current.value;
     if (!username.trim()) return;
 
-    const socket = io.connect("http://localhost:3000");
+    const socket = io.connect("http://localhost:192.168.1.186.3001");
     socket.emit("set_username", username);
 
     props.setSocket(socket);
