@@ -41,13 +41,14 @@ const Chat = (props) => {
     if (e.key === "Enter") handleSubmit();
   };
 
-  useEffect(() => {
-    scrollDown();
-  }, [messageList]);
 
   const scrollDown = () => {
     bottomRef.current.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    scrollDown();
+  }, [messageList]);
 
   return (
     <div>
