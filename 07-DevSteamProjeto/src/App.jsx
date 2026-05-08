@@ -5,11 +5,17 @@ import Header from "./components/Header/Header";
 import Promocoes from "./components/Promocoes/Promocoes";
 import GameRow from "./components/GameRow/GameRow";
 import Carrinho from "./components/Carrinho/Carrinho";
+import Rodape from "./components/Rodape/Rodape"
 
 import img01 from "./assets/img01.png";
 import img02 from "./assets/img02.png";
 import img03 from "./assets/img03.png";
 import img04 from "./assets/img04.png";
+
+import img05 from "./assets/img05.png";
+import img06 from "./assets/img06.png";
+import img07 from "./assets/img07.png";
+
 
 const promocoes = [
   {
@@ -54,12 +60,34 @@ const jogos = [
     price: 99.90,
     image: img04
   },
+  
   {
     id: 7,
     title: "Counter Strike",
     price: 99.90,
     image: img04
+  },
+
+  {
+    id: 8,
+    title: "Minecraft",
+    price: 89.90,
+    image: img05
+  },
+  {
+    id: 9,
+    title: "GTA",
+    price: 99.90,
+    image: img06
+  },
+
+  {
+    id: 10,
+    title: "Subway Surfers",
+    price: 90.90,
+    image: img07
   }
+
 ];
 
 function App() {
@@ -112,6 +140,9 @@ function App() {
       </div>
 
       {showCart && <Carrinho cart={cart} />}
+
+      <Rodape link={"https://github.com/anacorrea791"}>Ana clara</Rodape>
+
     </div>
   );
 }
