@@ -11,7 +11,6 @@ import img01 from "./assets/img01.png";
 import img02 from "./assets/img02.png";
 import img03 from "./assets/img03.png";
 import img04 from "./assets/img04.png";
-
 import img05 from "./assets/img05.png";
 import img06 from "./assets/img06.png";
 import img07 from "./assets/img07.png";
@@ -87,8 +86,8 @@ const jogos = [
     price: 90.90,
     image: img07
   }
-
 ];
+
 
 function App() {
   const [search, setSearch] = useState("");
@@ -108,6 +107,7 @@ function App() {
   );
 
   return (
+   
     <div className="app">
       <Header
         search={search}
@@ -139,7 +139,7 @@ function App() {
         ))}
       </div>
 
-      {showCart && <Carrinho cart={cart} />}
+       {showCart && <Carrinho cart={cart} />}
 
       <Rodape link={"https://github.com/anacorrea791"}>Ana clara</Rodape>
 

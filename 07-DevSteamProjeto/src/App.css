@@ -76,7 +76,7 @@ h2 {
 
 .desconto {
   background: #12444d;
-  font-size: 25px;
+  font-size: 20px;
 
 }
 
@@ -175,8 +175,13 @@ h2 {
 .cart {
   position: fixed;
   right: 70px;
-  top: 105px;
-  width: 210px;
+  top: 30px;
+  width: 50px;
   background: #5f0a4a;
   padding: 14px;
+}
+
+.cart img {
+ width: 45px;
+ height: 45px;
 }

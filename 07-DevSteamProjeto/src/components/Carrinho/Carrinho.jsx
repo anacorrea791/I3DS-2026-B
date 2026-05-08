@@ -9,26 +9,25 @@ const Carrinho = (props) => {
     <div className="cart">
       <h3>Carrinho</h3>
 
-     {props.cart.map((jogo) => {
-        const desconto = jogo.price / 2;
-
+      {props.cart.map((jogo) => {
         return (
           <div key={jogo.id} className="item-cart">
             <img src={jogo.image} alt={jogo.title} />
 
             <div className="info-cart">
-              <p>Nome - {jogo.title}</p>
-              <p>Preço - R$ {jogo.price.toFixed(2)}</p>
-              <p>Desconto - R$ {desconto.toFixed(2)}</p>
+              <p>{jogo.title}</p>
+              <p>R$ {jogo.price.toFixed(2)}</p>
             </div>
           </div>
         );
       })}
 
       <h2>Total: R$ {soma.toFixed(2)}</h2>
+
+      <button className="finalizar">Finalizar compra</button>
     </div>
   );
-}; 
-
+};
 
 export default Carrinho;
+
