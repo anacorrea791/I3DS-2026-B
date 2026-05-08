@@ -1,122 +1,119 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+
+import Header from "./components/Header/Header";
+import Promocoes from "./components/Promocoes/Promocoes";
+import GameRow from "./components/GameRow/GameRow";
+import Carrinho from "./components/Carrinho/Carrinho";
+
+import img01 from "./assets/img01.png";
+import img02 from "./assets/img02.png";
+import img03 from "./assets/img03.png";
+import img04 from "./assets/img04.png";
+
+const promocoes = [
+  {
+    id: 1,
+    title: "League of Legends",
+    price: 99.90,
+    discount: "-50%",
+    image: img01
+  },
+  {
+    id: 2,
+    title: "Dota 2",
+    price: 99.90,
+    discount: "-50%",
+    image: img02
+  },
+  {
+    id: 3,
+    title: "Valorant",
+    price: 99.90,
+    discount: "-50%",
+    image: img03
+  }
+];
+
+const jogos = [
+  {
+    id: 4,
+    title: "Counter Strike",
+    price: 99.90,
+    image: img04
+  },
+  {
+    id: 5,
+    title: "Counter Strike",
+    price: 99.90,
+    image: img04
+  },
+  {
+    id: 6,
+    title: "Counter Strike",
+    price: 99.90,
+    image: img04
+  },
+  {
+    id: 7,
+    title: "Counter Strike",
+    price: 99.90,
+    image: img04
+  }
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [search, setSearch] = useState("");
+  const [cart, setCart] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+
+  const addToCart = (game) => {
+    setCart((atual) => [...atual, game]);
+  };
+
+  const jogosPromocao = promocoes.filter((game) =>
+    game.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const outrosJogos = jogos.filter((game) =>
+    game.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app">
+      <Header
+        search={search}
+        setSearch={setSearch}
+        toggleCart={() => setShowCart(!showCart)}
+      />
 
-      <div className="ticks"></div>
+      <h2>PROMOÇÕES</h2>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <div className="promo-list">
+        {jogosPromocao.map((game) => (
+          <Promocoes
+            key={game.id}
+            game={game}
+            addToCart={addToCart}
+          />
+        ))}
+      </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      <h2>OUTROS JOGOS</h2>
+
+      <div>
+        {outrosJogos.map((game) => (
+          <GameRow
+            key={game.id}
+            game={game}
+            addToCart={addToCart}
+          />
+        ))}
+      </div>
+
+      {showCart && <Carrinho cart={cart} />}
+    </div>
+  );
 }
 
-export default App
+export default App;
