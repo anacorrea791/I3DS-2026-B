@@ -23,6 +23,18 @@ body {
   margin-top: 14px;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  width: 80px;
+  height: 65px;
+  object-fit: contain;
+}
+
 .header h1 {
   margin: 0;
   font-size: 22px;
@@ -48,6 +60,7 @@ body {
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
+
 
 h2 {
   text-align: center;
@@ -75,7 +88,7 @@ h2 {
 }
 
 .desconto {
-  background: #12444d;
+  background: #043240;
   font-size: 20px;
 
 }
@@ -83,7 +96,7 @@ h2 {
 .promo-card {
   width: 220px;
   max-width: 100%;
-  background: #770c5ee4;
+  background: #6c0a52e4;
   text-align: center;
   padding-bottom: 10px;
 }

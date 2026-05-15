@@ -1,4 +1,4 @@
-import style from "./Promocoes.module.css"
+import React from "react";
 
 const Promocoes = (props) => {
   const precoAntigo = 109.90;
@@ -20,7 +20,6 @@ const Promocoes = (props) => {
     </div>
   );
 };
-
 export default Promocoes;
 
 

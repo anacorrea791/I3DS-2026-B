@@ -1,11 +1,15 @@
-import style from "./Header.module.css"
 
+import logo from "../../assets/logo.png";
 
 const Header = (props) => {
   return (
-    <header className="header">
-      <h1>DevSteam</h1>
-    
+    <div className="header">
+
+      <div className="logo">
+        <img src={logo} alt="logo" />
+
+        <h1>DevSteam</h1>
+      </div>
 
       <input
         type="text"
@@ -13,10 +17,13 @@ const Header = (props) => {
         value={props.search}
         onChange={(e) => props.setSearch(e.target.value)}
       />
-     
-      <button onClick={props.toggleCart}>🛒</button>
-    </header>
+
+      <button onClick={props.toggleCart}>
+        🛒
+      </button>
+
+    </div>
   );
 };
 
-export default Header
+export default Header;

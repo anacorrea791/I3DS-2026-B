@@ -1,4 +1,4 @@
-import style from './Carrinho.module.css'
+import React from "react";
 
 const Carrinho = (props) => {
   const soma = props.cart.reduce((total, jogo) => {
